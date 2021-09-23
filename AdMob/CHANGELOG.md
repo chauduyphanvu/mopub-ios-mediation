@@ -1,4 +1,7 @@
 ## Changelog
+  * 8.11.0.0
+    * This version of the adapters has been certified with AdMob 8.11.0 and MoPub 5.18.0.
+
   * 8.10.0.0
     * This version of the adapters has been certified with AdMob 8.10.0 and MoPub 5.18.0.
 
