@@ -1,4 +1,7 @@
 ## Changelog
+   * 1.5.0.0
+     * This version of the adapters has been certified with Ogury 1.5.0 and MoPub 5.18.0.
+
    * 1.4.1.0
      * This version of the adapters has been certified with Ogury 1.4.1 and MoPub 5.18.0.
 
