@@ -1,4 +1,7 @@
 ## Changelog
+* 7.9.0.0
+  * This version of the adapters has been certified with Fyber Marketplace 7.9.0 and MoPub SDK 5.18.0.
+
 * 7.8.7.0
   * This version of the adapters has been certified with Fyber Marketplace 7.8.7 and MoPub SDK 5.18.0.
   
