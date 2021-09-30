@@ -1,7 +1,3 @@
-//
-//  IronSourceInterstitialCustomEvent.m
-//
-
 #import "IronSourceInterstitialCustomEvent.h"
 #import "IronSourceAdapterConfiguration.h"
 #if __has_include("MoPub.h")

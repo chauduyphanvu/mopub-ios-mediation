@@ -1,10 +1,3 @@
-//
-//  IronSourceAdapterConfiguration.h
-//  MoPubSDK
-//
-//  Copyright © 2017 MoPub. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 #if __has_include(<MoPub/MoPub.h>)
 #import <MoPub/MoPub.h>

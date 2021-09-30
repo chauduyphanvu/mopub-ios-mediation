@@ -1,7 +1,3 @@
-//
-//  IronSourceManager.h
-//
-
 #import <IronSource/IronSource.h>
 #import "IronSourceRewardedVideoDelegate.h"
 #import "IronSourceRewardedVideoCustomEvent.h"

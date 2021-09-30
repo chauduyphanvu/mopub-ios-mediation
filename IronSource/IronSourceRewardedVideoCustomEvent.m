@@ -1,7 +1,3 @@
-//
-//  IronSourceRewardedVideoCustomEvent.m
-//
-
 #import "IronSourceRewardedVideoCustomEvent.h"
 #import "IronSourceAdapterConfiguration.h"
 #import "IronSourceConstants.h"

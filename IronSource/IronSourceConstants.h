@@ -1,7 +1,3 @@
-//
-//  IronSourceConstants.h
-//
-
 // IronSource internal reporting consts
 static NSString *const kIronSourceMediationName = @"mopub";
 static NSString *const kIronSourceMediationVersion = @"500";

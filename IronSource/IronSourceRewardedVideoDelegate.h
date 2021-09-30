@@ -1,7 +1,3 @@
-//
-//  IronSourceRewardedVideoDelegate.h
-//
-
 @protocol IronSourceRewardedVideoDelegate
 
 - (void)rewardedVideoDidFailToLoadWithError:(NSError *)error instanceId:(NSString *)instanceId;

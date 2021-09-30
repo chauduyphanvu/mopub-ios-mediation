@@ -1,7 +1,3 @@
-//
-//  IronSourceInterstitialDelegate_h
-//
-
 @protocol IronSourceInterstitialDelegate
 
 - (void)interstitialDidLoad:(NSString *)instanceId;
