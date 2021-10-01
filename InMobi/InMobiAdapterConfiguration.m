@@ -9,6 +9,7 @@
 #import <InMobiSDK/IMSdk.h>
 
 #if __has_include("MoPub.h")
+    #import "MoPub.h"
     #import "MPLogging.h"
     #import "MPConstants.h"
 #endif
