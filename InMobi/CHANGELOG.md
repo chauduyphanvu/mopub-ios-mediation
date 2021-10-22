@@ -1,4 +1,7 @@
 ## Changelog
+* 9.2.1.2
+    * Starting with this version, the latest minor version release of network SDK will be downloaded. For other versions, manually integrate the desired network SDK framework.
+
 * 9.2.1.1
      * MoPub now collects GDPR consent on behalf of InMobi.
 
