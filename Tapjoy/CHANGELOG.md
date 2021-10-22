@@ -1,4 +1,7 @@
 ## Changelog
+  * 12.8.1.2
+    * Starting with this version, the latest minor version release of network SDK will be downloaded. For other versions, manually integrate the desired network SDK framework.
+
   * 12.8.1.1
     * Adjust minimium MoPub SDK version from 5.17.0 to 5.17. This allows integrations to use MoPub 5.17.x up to (but not including) 6.0.
     * Service release. No new features. 
