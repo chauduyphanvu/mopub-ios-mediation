@@ -15,7 +15,7 @@ NSString * const kOguryConfigurationAdUnitId = @"ad_unit_id";
 static NSString * const OguryErrorDomain = @"com.mopub.mopub-ios-sdk.mopub-ogury-adapters";
 static NSString * const OguryConfigurationMediationName = @"MoPub";
 static NSString * const OguryConfigurationKeyAssetKey = @"asset_key";
-static NSString * const OguryConfigurationAdapterVersion = @"1.5.0.0";
+static NSString * const OguryConfigurationAdapterVersion = @"1.5.0.1";
 static NSString * const OguryConfigurationNetworkName = @"ogury";
 
 @implementation OguryAdapterConfiguration
