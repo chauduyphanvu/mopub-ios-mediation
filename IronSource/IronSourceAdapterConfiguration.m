@@ -1,10 +1,3 @@
-//
-//  IronSourceAdapterConfiguration.m
-//  MoPubSDK
-//
-//  Copyright © 2017 MoPub. All rights reserved.
-//
-
 #import <IronSource/IronSource.h>
 #import "IronSourceAdapterConfiguration.h"
 #import "IronSourceManager.h"
@@ -32,7 +25,7 @@ NSString * const kIronSourceAppkey = @"applicationKey";
 #pragma mark - MPAdapterConfiguration
 
 - (NSString *)adapterVersion {
-    return @"7.1.11.0.0";
+    return @"7.1.11.0.1";
 }
 
 - (NSString *)biddingToken {
