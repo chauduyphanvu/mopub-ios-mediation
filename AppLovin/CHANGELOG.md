@@ -1,4 +1,7 @@
 ## Changelog
+   * 10.3.6.1
+     * Starting with this version, the latest minor version release of network SDK will be downloaded. For other versions, manually integrate the desired network SDK framework.
+
    * 10.3.6.0
      * This version of the adapters has been certified with AppLovin SDK 10.3.6 and MoPub SDK 5.18.0.
 
