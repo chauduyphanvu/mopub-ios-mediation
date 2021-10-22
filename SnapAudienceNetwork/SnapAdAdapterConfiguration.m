@@ -6,7 +6,7 @@
 NSString * const kSAKAppId = @"appId";
 
 static NSString * const kAdapterErrorDomain = @"com.mopub.mopub-ios-sdk.mopub-snapchat-adapters";
-NSString * const kMoPubSnapAdapterVersion = @"2.0.0.0";
+NSString * const kMoPubSnapAdapterVersion = @"2.0.0.1";
 NSString * const kMoPubNetworkName = @"snap";
 
 typedef NS_ENUM(NSInteger, SAKAdapterErrorCode) {
