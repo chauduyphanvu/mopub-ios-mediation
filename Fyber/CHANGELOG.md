@@ -1,4 +1,7 @@
 ## Changelog
+* 7.9.0.1
+  * Starting with this version, the latest minor version release of network SDK will be downloaded. For other versions, manually integrate the desired network SDK framework.
+
 * 7.9.0.0
   * This version of the adapters has been certified with Fyber Marketplace 7.9.0 and MoPub SDK 5.18.0.
 
