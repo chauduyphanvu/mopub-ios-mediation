@@ -1,5 +1,8 @@
 
 ## Changelog
+ * 3.7.5.3
+  * Starting with this version, the latest minor version release of network SDK will be downloaded. For other versions, manually integrate the desired network SDK framework.
+
  * 3.7.5.2
   * Refactor and update adapters to use latest Unity APIs.
 
