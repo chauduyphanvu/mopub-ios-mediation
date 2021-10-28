@@ -1,4 +1,7 @@
 ## Changelog
+* 10.0.1.0
+     * This version of the adapters has been certified with InMobi 10.0.1 and MoPub SDK 5.18.2.
+
 * 9.2.1.2
     * Starting with this version, the latest minor version release of network SDK will be downloaded. For other versions, manually integrate the desired network SDK framework.
 
