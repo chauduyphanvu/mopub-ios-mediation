@@ -2,8 +2,6 @@
 
 #import "FyberAdapterConfiguration.h"
 #import <IASDKCore/IASDKCore.h>
-#import <IASDKMRAID/IASDKMRAID.h>
-#import <IASDKVideo/IASDKVideo.h>
 
 @interface FyberRewardedVideoCustomEvent () <IAUnitDelegate, IAMRAIDContentDelegate, IAVideoContentDelegate>
 
@@ -128,6 +126,7 @@
         errorString = @"requesting video presentation before it is ready;";
     } else if (!self.interstitialUnitController.isReady) {
         errorString = @"ad did expire;";
+        [self.delegate fullscreenAdAdapterDidExpire:self];
     }
     
     if (errorString) {

@@ -3,8 +3,6 @@
 #import "FyberAdapterConfiguration.h"
 
 #import <IASDKCore/IASDKCore.h>
-#import <IASDKVideo/IASDKVideo.h>
-#import <IASDKMRAID/IASDKMRAID.h>
 
 @interface FyberInterstitialCustomEvent () <IAUnitDelegate, IAVideoContentDelegate, IAMRAIDContentDelegate>
 
@@ -124,6 +122,7 @@
         errorString = @"the interstitial ad is already presented;";
     } else if (!self.interstitialUnitController.isReady) {
         errorString = @"ad did expire;";
+        [self.delegate fullscreenAdAdapterDidExpire:self];
     }
     
     if (errorString) {
