@@ -402,7 +402,7 @@ typedef NS_ENUM(NSUInteger, SDKInitializeState) {
     if (settings.ordinal > 0) {
         options[VunglePlayAdOptionKeyOrdinal] = @(settings.ordinal);
     }
-    if (settings.startMuted) {
+    if (settings.muteIsSet) {
         options[VunglePlayAdOptionKeyStartMuted] = @(settings.startMuted);
     }
     

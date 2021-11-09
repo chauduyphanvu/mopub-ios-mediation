@@ -34,4 +34,6 @@
 
 @property (nonatomic, assign) NSNumber *orientations;
 
+@property (nonatomic, readonly, assign) BOOL muteIsSet;
+
 @end

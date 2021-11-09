@@ -125,8 +125,6 @@
         if (muted != nil) {
             BOOL startMutedPlaceholder = [muted boolValue];
             options[VunglePlayAdOptionKeyStartMuted] = @(startMutedPlaceholder);
-        } else {
-            options[VunglePlayAdOptionKeyStartMuted] = @(YES);
         }
     }
     self.options = options.count ? options : nil;
