@@ -13,7 +13,7 @@
 
 @interface UnityAdsAdapterInitializationDelegate : NSObject<UnityAdsInitializationDelegate>
 @property(nonatomic, copy) void (^ initializationCompleteBlock)(void);
-@property(nonatomic, copy) void (^ initializationFailedBlock)(int error, NSString *message);
+@property(nonatomic, copy) void (^ initializationFailedBlock)(UnityAdsInitializationError error, NSString *message);
 @end
 
 @implementation UnityAdsAdapterInitializationDelegate
@@ -25,22 +25,26 @@
 
 - (void)initializationFailed:(UnityAdsInitializationError)error withMessage:(nonnull NSString *)message {
     if (self.initializationFailedBlock) {
-        self.initializationFailedBlock(kUnityAdsErrorNotInitialized,message);
+        self.initializationFailedBlock(error, message);
     }
 }
+@end
 
+typedef void (^InitCompletionHandler)(NSError*);
+
+@interface UnityRouter ()
+@property(nonatomic, strong) NSMutableArray *completionBlocks;
 @end
 
 @implementation UnityRouter
 
 - (id) init {
     self = [super init];
-    
+    _completionBlocks = [NSMutableArray array];
     return self;
 }
 
-+ (UnityRouter *)sharedRouter
-{
++ (UnityRouter *)sharedRouter {
     static UnityRouter * sharedRouter;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -50,6 +54,19 @@
 }
 
 - (void)initializeWithGameId:(NSString *)gameId withCompletionHandler:(void (^)(NSError *))complete {
+    if ([UnityAds isInitialized]) {
+        if (complete != nil) {
+            complete(nil);
+        }
+        return;
+    }
+    // If this method was called multiple times from different threads, we want to call all completion handlers once initialization is done.
+    if (complete != nil) {
+        @synchronized (self.completionBlocks) {
+            [self.completionBlocks addObject:complete];
+        }
+    }
+    
     [self setIfUnityAdsCollectsPersonalInfo];
     static dispatch_once_t unityInitToken;
     dispatch_once(&unityInitToken, ^{
@@ -63,18 +80,14 @@
         UnityAdsAdapterInitializationDelegate *initDelegate = [[UnityAdsAdapterInitializationDelegate alloc] init];
         
         initDelegate.initializationCompleteBlock = ^{
-            if (complete != nil) {
-                complete(nil);
-            }
+            [[UnityRouter sharedRouter] callCompletionBlocks:nil];
         };
-        initDelegate.initializationFailedBlock = ^(int error, NSString *message) {
-            if (complete != nil) {
-                NSError *err = [NSError errorWithAdAdapterErrorCode:MOPUBErrorSDKNotInitialized description:message];
-                complete(err);
-            }
+        initDelegate.initializationFailedBlock = ^(UnityAdsInitializationError error, NSString *message) {
+            NSError *err = [NSError errorWithAdAdapterErrorCode:MOPUBErrorSDKNotInitialized description:message];
+            [[UnityRouter sharedRouter] callCompletionBlocks:err];
         };
         
-        [UnityAds initialize:gameId testMode:false enablePerPlacementLoad:true initializationDelegate:initDelegate];
+        [UnityAds initialize:gameId testMode:false initializationDelegate:initDelegate];
         
         [UnityAds setDebugMode:(MPLogging.consoleLogLevel == MPBLogLevelDebug)];
     });
@@ -104,6 +117,15 @@
             }
         }
         [gdprConsentMetaData commit];
+    }
+}
+
+- (void)callCompletionBlocks:(NSError *)error {
+    @synchronized (self.completionBlocks) {
+        for (InitCompletionHandler block in self.completionBlocks) {
+            block(error);
+        }
+        [self.completionBlocks removeAllObjects];
     }
 }
 

@@ -1,5 +1,9 @@
 
 ## Changelog
+ * 4.0.0.0
+  * Refactor and update adapters to use latest Unity APIs.
+  * This version of the adapters has been certified with Unity Ads 4.0.0 and MoPub SDK 5.18.2.
+  
  * 3.7.5.3
   * Starting with this version, the latest minor version release of network SDK will be downloaded. For other versions, manually integrate the desired network SDK framework.
 
